@@ -6,24 +6,24 @@
  */
 module.exports = {
     saveData: function(req, res) {
-        if (req.body) { 
+        if (req.body) {
             Admin.saveData(req.body, function(err, respo) {
                 if (err) {
                     res.json({
-                        value: false,
-                        data: err
+                        status: false,
+                        response: err
                     });
                 } else {
                     res.json({
-                        value: true,
-                        data: respo
+                        status: true,
+                        response: respo
                     });
                 }
             });
         } else {
             res.json({
-                value: false,
-                data: "Invalid call"
+                status: false,
+                response: "Invalid call"
             });
         }
     },
@@ -32,20 +32,20 @@ module.exports = {
             Admin.getAll(req.body, function(err, respo) {
                 if (err) {
                     res.json({
-                        value: false,
-                        data: err
+                        status: false,
+                        response: err
                     });
                 } else {
                     res.json({
-                        value: true,
-                        data: respo
+                        status: true,
+                        response: respo
                     });
                 }
             });
         } else {
             res.json({
-                value: false,
-                data: "Invalid call"
+                status: false,
+                response: "Invalid call"
             });
         }
     },
@@ -55,26 +55,26 @@ module.exports = {
                 Admin.deleteData(req.body, function(err, respo) {
                     if (err) {
                         res.json({
-                            value: false,
-                            data: err
+                            status: false,
+                            response: err
                         });
                     } else {
                         res.json({
-                            value: true,
-                            data: respo
+                            status: true,
+                            response: respo
                         });
                     }
                 });
             } else {
                 res.json({
-                    value: false,
-                    data: "Invalid Id"
+                    status: false,
+                    response: "Invalid Id"
                 });
             }
         } else {
             res.json({
-                value: false,
-                data: "Invalid call"
+                status: false,
+                response: "Invalid call"
             });
         }
     },
@@ -84,26 +84,26 @@ module.exports = {
                 Admin.getOne(req.body, function(err, respo) {
                     if (err) {
                         res.json({
-                            value: false,
-                            data: err
+                            status: false,
+                            response: err
                         });
                     } else {
                         res.json({
-                            value: true,
-                            data: respo
+                            status: true,
+                            response: respo
                         });
                     }
                 });
             } else {
                 res.json({
-                    value: false,
-                    data: "Invalid Id"
+                    status: false,
+                    response: "Invalid Id"
                 });
             }
         } else {
             res.json({
-                value: false,
-                data: "Invalid call"
+                status: false,
+                response: "Invalid call"
             });
         }
     },
@@ -113,26 +113,26 @@ module.exports = {
                 Admin.login(req.body, function(err, respo) {
                     if (err) {
                         res.json({
-                            value: false,
-                            data: err
+                            status: false,
+                            response: err
                         });
                     } else {
                         res.json({
-                            value: true,
-                            data: respo
+                            status: true,
+                            response: respo
                         });
                     }
                 });
             } else {
                 res.json({
-                    value: false,
-                    data: "Invalid params"
+                    status: false,
+                    response: "Invalid params"
                 });
             }
         } else {
             res.json({
-                value: false,
-                data: "Invalid call"
+                status: false,
+                response: "Invalid call"
             });
         }
     }

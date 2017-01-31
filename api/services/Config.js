@@ -19,12 +19,12 @@ module.exports = {
     if (err) {
       res.json({
         error: err,
-        value: false
+        status: false
       });
     } else {
       res.json({
-        data: data,
-        value: true
+        response: data,
+        status: true
       });
     }
   },
@@ -146,7 +146,7 @@ module.exports = {
     });
     readstream.on('error', function(err) {
       res.json({
-        value: false,
+        status: false,
         error: err
       });
     });
@@ -169,7 +169,7 @@ module.exports = {
       });
       readstream2.on('error', function(err) {
         res.json({
-          value: false,
+          status: false,
           error: err
         });
       });
@@ -201,7 +201,7 @@ module.exports = {
       }, function(err, found) {
         if (err) {
           res.json({
-            value: false,
+            status: false,
             error: err
           });
         }

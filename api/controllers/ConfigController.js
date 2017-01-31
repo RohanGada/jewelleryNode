@@ -35,13 +35,13 @@ module.exports = {
             if (err) {
                 console.log(err);
                 res.json({
-                    value: false,
-                    data: err
+                    status: false,
+                    response: err
                 });
             } else {
                 res.json({
-                    value: true,
-                    data: respObj
+                    status: true,
+                    response: respObj
                 });
             }
         });
@@ -81,20 +81,20 @@ module.exports = {
         Config.shortURL(req.body,function (err,data) {
           if(err){
             res.json({
-              value:false,
-              data:err
+              status:false,
+              response:err
             });
           }else{
             res.json({
-              value : true,
+              status: true,
               url:data
             });
           }
         });
       }else{
         res.json({
-          value:false,
-          data:"Input Inadequate"
+          status:false,
+          response:"Input Inadequate"
         });
       }
     },
@@ -103,20 +103,20 @@ module.exports = {
         Config.sendMessage(req.body,function (err,data) {
           if(err){
             res.json({
-              value:false,
-              data:err
+              status:false,
+              response:err
             });
           }else{
             res.json({
-              value : true,
-              data:data
+              status: true,
+              response:data
             });
           }
         });
       }else{
         res.json({
-          value:false,
-          data:"Input Inadequate"
+          status:false,
+          response:"Input Inadequate"
         });
       }
     },
@@ -208,20 +208,20 @@ module.exports = {
                 if (err) {
                     console.log(err);
                     res.json({
-                        value: false,
-                        data: err
+                        status: false,
+                        response: err
                     });
                 } else {
                     res.json({
-                        value: true,
-                        data: respObj
+                        status: true,
+                        response: respObj
                     });
                 }
             });
         } else {
             res.json({
-                value: false,
-                data: "Please provide params"
+                status: false,
+                response: "Please provide params"
             });
         }
     }

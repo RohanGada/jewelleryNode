@@ -27,8 +27,8 @@ module.exports = {
                 }, callback2);
             } else {
                 callback2(null, {
-                    value: false,
-                    data: "No files selected"
+                    status: false,
+                    response: "No files selected"
                 });
             }
         });
