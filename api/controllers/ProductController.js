@@ -71,5 +71,49 @@ module.exports = {
 				response:"Invalid request"
 			})
 		}
-	}
+	},
+	getall: function (req,res) {
+		if(req.body){
+			Product.getAll(req.body,function (err,data) {
+				if(err){
+					res.json({
+						status:false,
+						response:err
+					});
+				}else{
+					res.json({
+						status:true,
+						response:data
+					});
+				}
+			})
+		}else{
+			res.json({
+				status:false,
+				response:"Invalid request"
+			})
+		}
+	},
+		getOne: function (req,res) {
+			if(req.body){
+				Product.getOne(req.body,function (err,data) {
+					if(err){
+						res.json({
+							status:false,
+							response:err
+						});
+					}else{
+						res.json({
+							status:true,
+							response:data
+						});
+					}
+				})
+			}else{
+				res.json({
+					status:false,
+					response:"Invalid request"
+				})
+			}
+		}
 };

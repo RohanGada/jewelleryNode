@@ -15,8 +15,7 @@ var productSchema = new Schema({
     required: true
   },
   image: {
-    type: String,
-    required: true
+    type: String
   },
   status: {
     type: Boolean,
@@ -80,6 +79,31 @@ var models = {
         callback(null, data);
       } else {
         callback('Document not found', null);
+      }
+    });
+  },
+  getAll: function (data,callback) {
+    Product.find({},{},{},function (err,data) {
+      if(err){
+        callback(err,null);
+      }else if(data){
+        callback(null,data);
+      }else{
+        callback("Document not found",null);
+      }
+    });
+  },
+  getOne: function (data,callback) {
+    console.log(data);
+    Product.findOne({
+      _id:data._id
+    }).exec(function (err,data) {
+      if(err){
+        callback(err,null);
+      }else if(data){
+        callback(null,data);
+      }else{
+        callback("Document not found",null);
       }
     });
   }
