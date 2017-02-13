@@ -27,6 +27,28 @@ module.exports = {
             });
         }
     },
+    editData:function (req,res) {
+  		if(req.body){
+  			Banner.editData(req.body,function (err,data) {
+  				if(err){
+  					res.json({
+  						status:false,
+  						response:err
+  					});
+  				}else{
+  					res.json({
+  						status:true,
+  						response:data
+  					});
+  				}
+  			})
+  		}else{
+  			res.json({
+  				status:false,
+  				response:"Invalid request"
+  			})
+  		}
+  	},
     getAll: function(req, res) {
         if (req.body) {
             Banner.getAll(req.body, function(err, respo) {

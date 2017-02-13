@@ -48,6 +48,21 @@ var models = {
 
         }
     },
+    editData: function(data, callback) {
+      Banner.findOneAndUpdate({
+        _id: data._id
+      }, {
+        $set: data
+      }, {
+        new: true
+      }).exec(function(err, data) {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, data);
+        }
+      });
+    },
     getAll: function(data, callback) {
         Banner.find({}, {}, {}, function(err, deleted) {
             if (err) {
