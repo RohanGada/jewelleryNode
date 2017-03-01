@@ -27,7 +27,7 @@ module.exports = {
             });
         }
     },
-    getAll: function(req, res) {
+    getall: function(req, res) {
         if (req.body) {
             Admin.getAll(req.body, function(err, respo) {
                 if (err) {
